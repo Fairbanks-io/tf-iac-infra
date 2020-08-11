@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  jenkins:
+    image: yallalabs/jenkins:centos
+    environment:
+      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
+      - JENKINS_USER=${JENKINS_USER}
+      - JENKINS_PASS=${JENKINS_PASS}
+    ports:
+      - 8000:8080
+      - 50000:50000
+    volumes:
+      - jenkins_data:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+volumes:
+  jenkins_data:
+    driver: local
+    driver_opts:
+      type: "none"
+      o: "bind"
+      device: "/jenkinsdata"

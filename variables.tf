@@ -5,3 +5,5 @@ variable "ssh_fingerprint" {}
 variable "cloudflare_email" {}
 variable "cloudflare_api_key" {}
 variable "cloudflare_zone_id" {}
+variable "jenkins_user" {}
+variable "jenkins_pass" {}
