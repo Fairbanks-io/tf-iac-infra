@@ -10,6 +10,7 @@
 - [ ] Add Jenkins
 - [ ] Check Terraform Version in TF Remote workspace
 - [ ] Add docs for ssh key generation 
+- [ ] Add cloudflare to automatically create Vault.domain.tld dns record
 
 ## Getting Started
     1. Make terraform workspace named 'tf-iac-infra'
