@@ -46,7 +46,7 @@ resource "cloudflare_record" "vault" {
   type    = "A"
   ttl     = 1
 }
-
+/*
 resource "digitalocean_droplet" "jenkins-prod" {
   image              = "ubuntu-18-04-x64"
   name               = "jenkins-prod"
@@ -94,3 +94,4 @@ resource "cloudflare_record" "jenkins" {
   type    = "A"
   ttl     = 1
 }
+*/
