@@ -8,3 +8,4 @@
 ## TODO
 - [ ] Finish this Readme
 - [ ] Add Jenkins
+- [ ] Check Terraform Version in TF Remote workspace
