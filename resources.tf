@@ -37,3 +37,12 @@ resource "digitalocean_droplet" "vault-prod" {
     ]
   }
 }
+
+resource "cloudflare_record" "vault" {
+  zone_id = var.cloudflare_zone_id
+  name    = "vault"
+  proxied = true
+  value   = digitalocean_droplet.vault-prod.ipv4_address
+  type    = "A"
+  ttl     = 1
+}
