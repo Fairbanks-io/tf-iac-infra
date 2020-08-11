@@ -1,19 +1,19 @@
 resource "digitalocean_droplet" "vault-prod" {
-    image = "ubuntu-18-04-x64"
-    name = "vault-prod"
-    region = "sfo2"
-    size = "s-1vcpu-1gb"
-    private_networking = true
-    ssh_keys = [
-      var.ssh_fingerprint
-    ]
+  image              = "ubuntu-18-04-x64"
+  name               = "vault-prod"
+  region             = "sfo2"
+  size               = "s-1vcpu-1gb"
+  private_networking = true
+  ssh_keys = [
+    var.ssh_fingerprint
+  ]
 
   connection {
-    host = self.ipv4_address
-    user = "root"
-    type = "ssh"
+    host        = self.ipv4_address
+    user        = "root"
+    type        = "ssh"
     private_key = file(var.pvt_key)
-    timeout = "2m"
+    timeout     = "2m"
   }
 
   provisioner "remote-exec" {
