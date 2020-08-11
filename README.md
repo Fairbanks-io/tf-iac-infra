@@ -7,3 +7,4 @@
 
 ## TODO
 - [ ] Finish this Readme
+- [ ] Add Jenkins
