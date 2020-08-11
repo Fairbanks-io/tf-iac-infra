@@ -9,3 +9,4 @@
 - [ ] Finish this Readme
 - [ ] Add Jenkins
 - [ ] Check Terraform Version in TF Remote workspace
+- [ ] Add docs for ssh key generation 
