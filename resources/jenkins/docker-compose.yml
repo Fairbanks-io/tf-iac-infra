@@ -3,6 +3,8 @@ services:
   jenkins:
     image: yallalabs/jenkins:centos
     environment:
+      - PUID=1000
+      - PGID=1000
       - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
       - JENKINS_USER=${JENKINS_USER}
       - JENKINS_PASS=${JENKINS_PASS}
