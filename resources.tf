@@ -1,3 +1,7 @@
+###
+# Vault Box
+###
+
 resource "digitalocean_droplet" "vault-prod" {
   image              = "ubuntu-18-04-x64"
   name               = "vault-prod"
@@ -21,10 +25,9 @@ resource "digitalocean_droplet" "vault-prod" {
       "export PATH=$PATH:/usr/bin",
       "apt-get update",
       "apt-get upgrade -y",
-      # Install Docker
+      # Install Docker & Docker-Compose
       "curl -fsSL https://get.docker.com -o get-docker.sh",
       "sh get-docker.sh",
-      # Install Docker-Compose
       "apt-get install docker-compose -y",
       # Setup HashiVault
       "touch docker-compose.yml",
@@ -37,6 +40,10 @@ resource "digitalocean_droplet" "vault-prod" {
     ]
   }
 }
+
+###
+# Jenkins Box
+###
 
 resource "cloudflare_record" "vault" {
   zone_id = var.cloudflare_zone_id
@@ -72,12 +79,11 @@ resource "digitalocean_droplet" "jenkins-prod" {
       "export JENKINS_PASS=${var.jenkins_pass}",
       "apt-get update",
       "apt-get upgrade -y",
-      # Install Docker
+      # Install Docker & Docker-Compose
       "curl -fsSL https://get.docker.com -o get-docker.sh",
       "sh get-docker.sh",
-      # Install Docker-Compose
       "apt-get install docker-compose -y",
-      # Setup HashiVault
+      # Setup Jenkins
       "touch docker-compose.yml",
       "mkdir -p /jenkinsdata",
       "curl https://raw.githubusercontent.com/Fairbanks-io/tf-iac-infra/master/resources/jenkins/docker-compose.yml --output docker-compose.yml",
@@ -94,4 +100,3 @@ resource "cloudflare_record" "jenkins" {
   type    = "A"
   ttl     = 1
 }
-
