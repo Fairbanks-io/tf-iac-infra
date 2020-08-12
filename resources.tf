@@ -30,7 +30,6 @@ resource "digitalocean_droplet" "vault-prod" {
       "sh get-docker.sh",
       "apt-get install docker-compose -y",
       # Setup HashiVault
-      "touch docker-compose.yml",
       "mkdir -p volumes/config",
       "mkdir -p volumes/file",
       "mkdir -p volumes/logs",
@@ -84,7 +83,6 @@ resource "digitalocean_droplet" "jenkins-prod" {
       "sh get-docker.sh",
       "apt-get install docker-compose -y",
       # Setup Jenkins
-      "touch docker-compose.yml",
       "mkdir -p /jenkinsdata",
       "curl https://raw.githubusercontent.com/Fairbanks-io/tf-iac-infra/master/resources/jenkins/docker-compose.yml --output docker-compose.yml",
       "docker-compose up -d"
