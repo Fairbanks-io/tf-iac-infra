@@ -8,6 +8,7 @@ resource "digitalocean_droplet" "vault-prod" {
   region             = "sfo2"
   size               = "s-1vcpu-1gb"
   private_networking = true
+  monitoring         = true
   ssh_keys = [
     var.ssh_fingerprint
   ]
@@ -59,6 +60,7 @@ resource "digitalocean_droplet" "jenkins-prod" {
   region             = "sfo2"
   size               = "s-1vcpu-1gb"
   private_networking = true
+  monitoring         = true
   ssh_keys = [
     var.ssh_fingerprint
   ]
