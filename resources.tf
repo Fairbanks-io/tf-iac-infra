@@ -8,7 +8,6 @@ resource "digitalocean_droplet" "vault-prod" {
   region             = "sfo2"
   size               = "s-1vcpu-1gb"
   private_networking = true
-  monitoring         = true
   ssh_keys = [
     var.ssh_fingerprint
   ]
@@ -24,6 +23,8 @@ resource "digitalocean_droplet" "vault-prod" {
   provisioner "remote-exec" {
     inline = [
       "export PATH=$PATH:/usr/bin",
+      # Setup DigitalOcean Metrics Agent
+      "curl -sSL https://repos.insights.digitalocean.com/install.sh | sudo bash",
       # Install Docker & Docker-Compose
       "curl -fsSL https://get.docker.com -o get-docker.sh",
       "sh get-docker.sh",
@@ -60,7 +61,6 @@ resource "digitalocean_droplet" "jenkins-prod" {
   region             = "sfo2"
   size               = "s-1vcpu-1gb"
   private_networking = true
-  monitoring         = false
   ssh_keys = [
     var.ssh_fingerprint
   ]
@@ -78,6 +78,8 @@ resource "digitalocean_droplet" "jenkins-prod" {
       "export PATH=$PATH:/usr/bin",
       "export JENKINS_USER=${var.jenkins_user}",
       "export JENKINS_PASS=${var.jenkins_pass}",
+      # Setup DigitalOcean Metrics Agent
+      "curl -sSL https://repos.insights.digitalocean.com/install.sh | sudo bash",
       # Install Docker & Docker-Compose
       "curl -fsSL https://get.docker.com -o get-docker.sh",
       "sh get-docker.sh",
