@@ -76,8 +76,6 @@ resource "digitalocean_droplet" "jenkins-prod" {
   provisioner "remote-exec" {
     inline = [
       "export PATH=$PATH:/usr/bin",
-      "export JENKINS_USER=${var.jenkins_user}",
-      "export JENKINS_PASS=${var.jenkins_pass}",
       # Setup DigitalOcean Metrics Agent
       "curl -sSL https://repos.insights.digitalocean.com/install.sh | sudo bash",
       # Install Docker & Docker-Compose
