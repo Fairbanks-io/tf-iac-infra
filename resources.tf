@@ -24,11 +24,11 @@ resource "digitalocean_droplet" "vault-prod" {
   provisioner "remote-exec" {
     inline = [
       "export PATH=$PATH:/usr/bin",
-      "apt-get update",
-      "apt-get upgrade -y",
       # Install Docker & Docker-Compose
       "curl -fsSL https://get.docker.com -o get-docker.sh",
       "sh get-docker.sh",
+      # "apt-get update", This is already ran in get-docker.sh
+      "apt-get upgrade -y",
       "apt-get install docker-compose -y",
       # Setup HashiVault
       "mkdir -p volumes/config",
@@ -78,11 +78,11 @@ resource "digitalocean_droplet" "jenkins-prod" {
       "export PATH=$PATH:/usr/bin",
       "export JENKINS_USER=${var.jenkins_user}",
       "export JENKINS_PASS=${var.jenkins_pass}",
-      "apt-get update",
-      "apt-get upgrade -y",
       # Install Docker & Docker-Compose
       "curl -fsSL https://get.docker.com -o get-docker.sh",
       "sh get-docker.sh",
+      # "apt-get update", This is already ran in get-docker.sh
+      "apt-get upgrade -y",
       "apt-get install docker-compose -y",
       # Setup Jenkins
       "mkdir -p /jenkinsdata",
