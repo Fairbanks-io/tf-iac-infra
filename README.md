@@ -10,7 +10,6 @@
 - [ ] Add output for vault fqdn to be used in other modules
 - [ ] Create script to generate keys and publish automatically digital ocean, then create workspace and set variables accordingly
 - [ ] Finish this Readme
-- [ ] Add Jenkins
 - [ ] Document how others can submit PR
 
 ## Getting Started
