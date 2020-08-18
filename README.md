@@ -11,6 +11,7 @@
 - [ ] Create script to generate keys and publish automatically digital ocean, then create workspace and set variables accordingly
 - [ ] Finish this Readme
 - [ ] Document how others can submit PR
+- [ ] Add Jenkins 'first steps' to docs.
 
 ## Getting Started
   1. Make terraform workspace named 'tf-iac-infra'
