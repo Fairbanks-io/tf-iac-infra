@@ -46,7 +46,7 @@ resource "digitalocean_droplet" "vault-prod" {
 # Jenkins Box
 ###
 
-resource "cloudflare_record" "vault" {
+/* resource "cloudflare_record" "vault" {
   zone_id = var.cloudflare_zone_id
   name    = "vault"
   proxied = true
@@ -101,4 +101,4 @@ resource "cloudflare_record" "jenkins" {
   value   = digitalocean_droplet.jenkins-prod.ipv4_address
   type    = "A"
   ttl     = 1
-}
+} */
