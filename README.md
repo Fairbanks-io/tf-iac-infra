@@ -12,6 +12,7 @@
 - [ ] Finish this Readme
 - [ ] Document how others can submit PR
 - [ ] Add Jenkins 'first steps' to docs.
+- [ ] include recommendations for jenkins setup
 
 ## Getting Started
   1. Make terraform workspace named 'tf-iac-infra'
