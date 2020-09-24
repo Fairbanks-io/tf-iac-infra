@@ -10,7 +10,7 @@ terraform {
       name = "tf-iac-infra"
     }
   }
-    required_providers {
+  required_providers {
     digitalocean = {
       source  = "digitalocean/digitalocean"
       version = "~> 1.22.2"
