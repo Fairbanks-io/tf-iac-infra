@@ -46,7 +46,7 @@ resource "cloudflare_record" "vault" {
   zone_id = var.cloudflare_zone_id_fairbanks
   name    = "vault"
   proxied = true
-  value   = digitalocean_droplet.jenkins-prod.ipv4_address
+  value   = digitalocean_droplet.vault.ipv4_address
   type    = "A"
   ttl     = 1
 } 
