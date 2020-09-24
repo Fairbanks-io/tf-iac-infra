@@ -31,7 +31,7 @@ resource "digitalocean_droplet" "vault-prod" {
       # "apt-get update", This is already ran in get-docker.sh
       "apt-get upgrade -y",
       "apt-get install docker-compose -y",
-      # Setup HashiVault
+      # Setup Vault
       "mkdir -p volumes/config",
       "mkdir -p volumes/file",
       "mkdir -p volumes/logs",
@@ -40,6 +40,15 @@ resource "digitalocean_droplet" "vault-prod" {
       "docker-compose up -d"
     ]
   }
+}
+
+resource "cloudflare_record" "vault-prod" {
+  zone_id = var.cloudflare_zone_id_fairbanks
+  name    = "vault"
+  proxied = true
+  value   = digitalocean_droplet.vault-prod.ipv4_address
+  type    = "A"
+  ttl     = 1
 }
 
 ###
