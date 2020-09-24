@@ -49,7 +49,7 @@ resource "cloudflare_record" "vault" {
   value   = digitalocean_droplet.vault.ipv4_address
   type    = "A"
   ttl     = 1
-} 
+}
 
 ###
 # Jenkins Box
