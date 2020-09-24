@@ -31,7 +31,7 @@ resource "digitalocean_droplet" "vault-prod" {
       # "apt-get update", This is already ran in get-docker.sh
       "apt-get upgrade -y",
       "apt-get install docker-compose -y",
-      # Setup HashiVault
+      # Setup Vault
       "mkdir -p volumes/config",
       "mkdir -p volumes/file",
       "mkdir -p volumes/logs",
