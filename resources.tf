@@ -2,7 +2,7 @@
 # Vault Box
 ###
 
-resource "digitalocean_droplet" "vault-prod" {
+/* resource "digitalocean_droplet" "vault-prod" {
   image              = "ubuntu-18-04-x64"
   name               = "vault-prod"
   region             = "sfo2"
@@ -49,4 +49,4 @@ resource "cloudflare_record" "vault-prod" {
   value   = digitalocean_droplet.vault-prod.ipv4_address
   type    = "A"
   ttl     = 1
-}
+} */
